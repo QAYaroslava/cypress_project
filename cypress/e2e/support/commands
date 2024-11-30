@@ -1,0 +1,13 @@
+  Cypress.Commands.add('createExpense', (authCookie, carId, expenseData) => {
+    return cy.request({
+      method: 'POST',
+      url: 'https://qauto.forstudy.space/api/expenses',
+      headers: {
+        Cookie: authCookie, // Передаємо cookies для авторизації
+      },
+      body: {
+        carId: carId, // ID машини, для якої створюється витрата
+        ...expenseData, // Додаткові параметри витрати
+      },
+    });
+  });

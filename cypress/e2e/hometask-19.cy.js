@@ -1,4 +1,4 @@
-import './commands';
+import '../support/commands';
 
 describe('Registration tests', () => {
     beforeEach(() => {
