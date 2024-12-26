@@ -1,0 +1,11 @@
+services:
+  cypress:
+    image: cypress/included:12.17.4
+    container_name: cypress-tests
+    working_dir: /e2e
+    volumes:
+      - .:/e2e
+      - /e2e/node_modules
+    environment:
+      - CYPRESS_BROWSER=firefox
+    entrypoint: ["cypress", "run"]
