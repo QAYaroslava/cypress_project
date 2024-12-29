@@ -3,37 +3,27 @@ name: Run Cypress Tests in Docker
 on:
   push:
     branches:
-      - main
+      - "*"
   pull_request:
-    branches:
-      - main
+    types: ['opened']
 
 jobs:
   cypress-tests:
     runs-on: ubuntu-latest
 
-    steps:
-      # 1. Checkout the code
-      - name: Checkout repository
+     steps:
+      - name: Checkout code
         uses: actions/checkout@v3
 
-      # 2. Set up Docker
-      - name: Run tests in Cypress Docker container
+      - name: Install dependencies
+        run: npm install
+        working-directory: ./cypress_project
+
+      - name: Run Cypress tests
         uses: addnab/docker-run-action@v3
         with:
-          image: cypress/browsers:node-20.9.0-chrome-118.0.5993.88-1-ff-118.0.2-edge-118.0.2088.46-1
-          options: --entrypoint=""
+          image: cypress/browsers:node-20.8.0-chrome-118-ff-118-edge-118
+          options: --entrypoint ''
           run: |
-            # Install dependencies
-            npm ci
-
-            # Run Cypress tests
-            npx cypress run --headless --browser chrome
-
-      # 3. Upload Cypress test results
-      - name: Upload Cypress artifacts
-        if: always()
-        uses: actions/upload-artifact@v3
-        with:
-          name: cypress-results
-          path: cypress/videos/
+            npx cypress run --config-file cypress.config.js
+            working-directory: ./cypress_project
