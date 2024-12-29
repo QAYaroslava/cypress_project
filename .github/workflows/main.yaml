@@ -11,7 +11,7 @@ jobs:
   cypress-tests:
     runs-on: ubuntu-latest
 
-     steps:
+    steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
@@ -26,4 +26,3 @@ jobs:
           options: --entrypoint ''
           run: |
             npx cypress run --config-file cypress.config.js
-            working-directory: ./cypress_project
