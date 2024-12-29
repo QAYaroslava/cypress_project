@@ -17,7 +17,7 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-        working-directory: ./cypress_project
+        working-directory: .
 
       - name: Run Cypress tests
         uses: addnab/docker-run-action@v3
