@@ -21,6 +21,6 @@
   },
   "homepage": "https://github.com/QAYaroslava/cypress_project#readme",
   "devDependencies": {
-    "cypress": "^12.17.4"
+    "cypress": "^13.17.0"
   }
 }
