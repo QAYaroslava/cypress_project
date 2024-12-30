@@ -15,13 +15,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Install dependencies
-        run: npm install
-        working-directory: .
-
       - name: Run Cypress tests
         uses: addnab/docker-run-action@v3
         with:
           image: cypress/browsers:node-20.9.0-chrome-118.0.5993.88-1-ff-118.0.2-edge-118.0.2088.46-1
+          options: > 
+            -v ${{ github.workspace }}:/e2e
+            -w /e2e
           run: |
-            npm run cypress
+            npm install
+            npx cypress run
