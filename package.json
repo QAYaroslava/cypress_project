@@ -6,7 +6,10 @@
   "scripts": {
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
-    "cypress:run:parallel": "cypress-parallel -s cypress:run -t 3 -d './cypress/e2e/*.js' -a '\"--browser chrome\"'"
+    "cypress:run:parallel": "cypress-parallel -s cypress:run -t 3 -d './cypress/e2e/*.js' -a '\"--browser chrome\"'",
+    "test:qauto1": "cypress run --config-file cypress.config.qauto1.json",
+    "test:qauto2": "cypress run --config-file cypress.config.qauto2.json",
+    "test:report": "cypress run --reporter cypress-mochawesome-reporter"
   },
   "repository": {
     "type": "git",
@@ -23,6 +26,7 @@
   },
   "homepage": "https://github.com/QAYaroslava/cypress_project#readme",
   "devDependencies": {
-    "cypress": "^13.17.0"
+    "cypress": "^13.17.0",
+    "cypress-mochawesome-reporter": "^3.8.2"
   }
 }

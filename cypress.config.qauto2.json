@@ -1,0 +1,14 @@
+{
+    "baseUrl": "https://qauto2.forstudy.space",
+    "env": {
+      "email": "kompass7799@gmail.com",
+      "password": "Qwerty123"
+    },
+    "reporter": "cypress-mochawesome-reporter",
+    "reporterOptions": {
+      "reportDir": "cypress/reports/qauto2",
+      "overwrite": false,
+      "html": false,
+      "json": true
+    }
+  }
